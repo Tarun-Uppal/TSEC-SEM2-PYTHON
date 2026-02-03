@@ -1,6 +1,3 @@
-# Set operations for different exam courses
-
-# Define sets of students for each exam
 jee_students = {"Aarav", "Siddhant", "Vedant", "Chaitanya"}
 cet_students = {"Siddhant", "Vedant", "Chaitanya", "Vikram"}
 neet_students = {"Rohan", "Aarav", "Chaitanya", "Yuvraj"}

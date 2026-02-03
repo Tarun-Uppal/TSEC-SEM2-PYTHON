@@ -13,7 +13,7 @@ while True:
     
     if choice == 1:
         task_name = input("Enter task name: ")
-        priority = input("Enter priority (High/Medium/Low): ")
+        priority = int(input("Enter priority (1-Highest/2-Medium/3-Lowest): "))
         task = (task_name, priority)
         tasks.append(task)
         print(f"Task '{task_name}' added!")
@@ -42,15 +42,14 @@ while True:
             idx = int(input())
             if 0 <= idx < len(tasks):
                 new_name = input("Enter new task name: ")
-                new_priority = input("Enter new priority: ")
+                new_priority = int(input("Enter new priority (1-Highest/2-Medium/3-Lowest): "))
                 tasks[idx] = (new_name, new_priority)
                 print("Task updated!")
             else:
                 print("Invalid task number!")
     
     elif choice == 4:
-        priority_order = {'High': 1, 'Medium': 2, 'Low': 3}
-        tasks.sort(key=lambda x: priority_order.get(x[1], 4))
+        tasks.sort(key=lambda x: x[1])
         print("Tasks sorted by priority!")
     
     elif choice == 5:
