@@ -1,25 +1,18 @@
-class Animal:
-    def __init__(self, name):
-        self.name = name
-
-    def speak(self):
-        print(f"{self.name} makes a sound.")
-
-class Dog(Animal):
-    def speak(self):
-        print(f"{self.name} barks.")
-
-class Cat(Animal):
-    def speak(self):
-        print(f"{self.name} meows.")
-
-# Creating objects
-dog = Dog("Buddy")
-cat = Cat("Whiskers")
-
-# Accessing attributes and methods
-print(dog.name)
-dog.speak()
-
-print(cat.name)
-cat.speak()
+try:
+    num1 = input("Enter the first number: ")
+    num2 = input("Enter the second number: ")
+    num1 = float(num1)
+    num2 = float(num2)
+    result = num1 / num2
+    print(f"Result of {num1} / {num2} = {result}")
+        
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero! Please enter a non-zero divisor.")
+except ValueError:
+    print("Error: Invalid input! Please enter valid numeric values.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+else:
+    print("Division completed successfully!")
+finally:
+    print("Program execution finished.")

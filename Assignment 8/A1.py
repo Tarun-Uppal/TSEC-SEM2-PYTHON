@@ -1,38 +1,26 @@
-import tkinter as tk
-from tkinter import messagebox
+import re
 
-def submit_form():
-    name = entry_name.get()
-    roll = entry_roll.get()
-    branch = entry_branch.get()
-    email = entry_email.get()
-    if not (name and roll and branch and email):
-        messagebox.showwarning("Incomplete Data", "Please fill all fields.")
-        return
-    messagebox.showinfo("Submitted", f"Name: {name}\nRoll No: {roll}\nBranch: {branch}\nEmail: {email}")
+print("Enter a password:")
+password = input()
 
-root = tk.Tk()
-root.title("Student Form")
-root.geometry("300x300")
+# Validate password criteria
+has_length = len(password) >= 8
+has_uppercase = re.search(r'[A-Z]', password)
+has_lowercase = re.search(r'[a-z]', password)
+has_digit = re.search(r'\d', password)
+has_special = re.search(r'[!@#$%^&*()_+\-=\[\]{};:\'",.<>?/\\|`~]', password)
 
-tk.Label(root, text="Student Form", font=("Arial", 16)).pack(pady=10)
-
-tk.Label(root, text="Name:").pack()
-entry_name = tk.Entry(root)
-entry_name.pack()
-
-tk.Label(root, text="Roll No:").pack()
-entry_roll = tk.Entry(root)
-entry_roll.pack()
-
-tk.Label(root, text="Branch:").pack()
-entry_branch = tk.Entry(root)
-entry_branch.pack()
-
-tk.Label(root, text="Email:").pack()
-entry_email = tk.Entry(root)
-entry_email.pack()
-
-tk.Button(root, text="Submit", command=submit_form).pack(pady=15)
-
-root.mainloop()
+if has_length and has_uppercase and has_lowercase and has_digit and has_special:
+    print("Password is valid!")
+else:
+    print("Password is invalid. It must contain:")
+    if not has_length:
+        print("- At least 8 characters")
+    if not has_uppercase:
+        print("- At least one uppercase letter")
+    if not has_lowercase:
+        print("- At least one lowercase letter")
+    if not has_digit:
+        print("- At least one digit")
+    if not has_special:
+        print("- At least one special character")
